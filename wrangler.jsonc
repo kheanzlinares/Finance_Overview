@@ -10,6 +10,9 @@
     "not_found_handling": "single-page-application",
     "run_worker_first": ["/api/*"]
   },
+  "vars": {
+    "ALLOWED_EMAILS": "kheanzlinares@icloud.com"
+  },
   // The database is created automatically on the first deploy
   "d1_databases": [{ "binding": "DB" }],
   // Keep variables set in the dashboard (e.g. ALLOWED_EMAILS) when deploying

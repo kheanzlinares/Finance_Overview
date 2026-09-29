@@ -97,8 +97,10 @@ The app runs as one Cloudflare Worker: it serves the website and a small sync AP
 **3. Put the login in front of the app**
 
 1. Open your Worker in **Workers & Pages**, go to its **Access** settings and choose **Protect this Worker behind Access** for **all traffic** (this also covers the workers.dev address and previews).
-2. In the policy, allow only **your own email address** and choose **GitHub** as the login method.
-3. Extra safety (recommended): in the Worker's **Settings → Variables and Secrets**, add a variable `ALLOWED_EMAILS` with your email address. The sync API then refuses every other account, even if the Access policy were ever changed.
+2. In the policy, choose the **email** option and enter **the email address of your GitHub account** (GitHub → Settings → Emails, the primary one). Apply. This dialog only sets *who* may log in, not *how*.
+3. To log in with GitHub: in **Zero Trust → Access → Applications** (may be called **Access controls → Applications**), open the application that was just created for your Worker and edit it. Under **Login methods** / identity providers, select **GitHub** only. Optionally turn on **instant authentication** so you go straight to GitHub. Save.
+   - Without this step you log in with a one-time code sent to your email instead, which is also secure.
+4. Extra safety (recommended): in the Worker's **Settings → Variables and Secrets**, add a variable `ALLOWED_EMAILS` with your email address. The sync API then refuses every other account, even if the Access policy were ever changed.
 
 **4. Turn on sync**
 

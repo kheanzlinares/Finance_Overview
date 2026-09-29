@@ -11,7 +11,7 @@
     "run_worker_first": ["/api/*"]
   },
   "vars": {
-    "ALLOWED_EMAILS": "kheanzlinares@icloud.com"
+    "ALLOWED_EMAILS": "kheanzlinares@icloud.com\nKheanzlinares@icloud.com"
   },
   // The database is created automatically on the first deploy
   "d1_databases": [{ "binding": "DB" }],

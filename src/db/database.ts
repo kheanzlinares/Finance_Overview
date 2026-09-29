@@ -323,7 +323,7 @@ export async function saveAccount(
 ): Promise<void> {
   if (a.id && a.balanceCents === undefined) {
     await db.runAsync('UPDATE accounts SET name = ?, type = ?, link = ?, currency = ? WHERE id = ?', [a.name, a.type, a.link, a.currency, a.id]);
-  } else if (a.id) {
+  } else if (a.id && a.balanceCents !== undefined) {
     await db.runAsync(
       "UPDATE accounts SET name = ?, type = ?, link = ?, balance_cents = ?, currency = ?, updated_at = datetime('now', 'localtime') WHERE id = ?",
       [a.name, a.type, a.link, a.balanceCents, a.currency, a.id],
